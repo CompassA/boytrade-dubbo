@@ -17,15 +17,23 @@
   <packaging>jar</packaging>
 
   <dependencies>
+    <!-- AOP -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+    <!-- JUnit -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- MVC -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <!--  dubbo  -->
     <dependency>
       <groupId>org.apache.dubbo</groupId>
       <artifactId>dubbo-spring-boot-starter</artifactId>
@@ -34,6 +42,7 @@
       <groupId>org.apache.dubbo</groupId>
       <artifactId>dubbo</artifactId>
     </dependency>
+    <!--  dubbo zookeeper  -->
     <dependency>
       <groupId>org.apache.dubbo</groupId>
       <artifactId>dubbo-dependencies-zookeeper</artifactId>
