@@ -1,2 +1,21 @@
 server:
   port: 7070
+
+spring:
+  application:
+    name: bot-trade-dubbo-provider
+
+dubbo:
+  config-center:
+    timeout: 100000
+  application:
+    name: bot-trade-dubbo-provider
+  scan:
+    base-packages: org.study.service.impl
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: 192.168.2.132:2181
+    protocol: zookeeper
+    check: false

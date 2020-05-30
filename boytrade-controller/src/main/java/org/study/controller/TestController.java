@@ -1,7 +1,8 @@
 package org.study.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.study.boytrade.test.BoyTradePrintService;
 import org.study.config.ApiPath;
@@ -13,10 +14,11 @@ import org.study.config.ApiPath;
 @RestController
 public class TestController {
 
+    @Reference(version = "1.0.0")
     private BoyTradePrintService boyTradePrintService;
 
-    @PostMapping(ApiPath.Test.ECHO)
-    public String echoString(@RequestBody String body) {
-        return boyTradePrintService.printString(body);
+    @GetMapping(ApiPath.Test.ECHO)
+    public String echoString(@RequestParam("param") String param) {
+        return boyTradePrintService.printString(param);
     }
 }

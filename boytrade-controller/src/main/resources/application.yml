@@ -1,2 +1,18 @@
 server:
   port: 7080
+
+spring:
+  application:
+    name: boy-trade-dubbo-consumer
+
+dubbo:
+  service:
+    version: 1.0.0
+  application:
+    name: boy-trade-dubbo-consumer
+  config-center:
+    timeout: 10000
+  registry:
+    address: 192.168.2.132:2181
+    protocol: zookeeper
+    check: false
