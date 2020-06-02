@@ -7,7 +7,7 @@ import org.study.boytrade.test.BoyTradePrintService;
  * @author fanqie
  * @date 2020/5/30
  */
-@Service(version = "1.0.0")
+@Service
 public class BoyTradePrintServiceImpl implements BoyTradePrintService {
 
     @Override

@@ -14,7 +14,7 @@ import org.study.config.ApiPath;
 @RestController
 public class TestController {
 
-    @Reference(version = "1.0.0")
+    @Reference
     private BoyTradePrintService boyTradePrintService;
 
     @GetMapping(ApiPath.Test.ECHO)
