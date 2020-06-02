@@ -3,13 +3,22 @@ server:
 
 spring:
   application:
-    name: bot-trade-dubbo-provider
+    name: boy-trade-dubbo-provider
+  datasource:
+    url: "jdbc:mysql://192.168.2.132:3306/trade_dubbo?characterEncoding=utf-8"
+    username: "root"
+    password: "Root@2019"
+    driver-class-name: "com.mysql.jdbc.Driver"
+    type: "com.alibaba.druid.pool.DruidDataSource"
+
+mybatis:
+  mapper-locations: "classpath:mapper/*.xml"
 
 dubbo:
   config-center:
     timeout: 100000
   application:
-    name: bot-trade-dubbo-provider
+    name: boy-trade-dubbo-provider
   scan:
     base-packages: org.study.service.impl
   protocol:

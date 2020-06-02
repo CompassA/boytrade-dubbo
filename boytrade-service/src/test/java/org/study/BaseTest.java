@@ -9,7 +9,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 /**
  * @author fanqie
- * @date 2020/5/30
+ * @date 2020/6/2
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -18,5 +18,4 @@ public class BaseTest {
 
     @Test
     public void test() { Assert.assertTrue(true); }
-
 }

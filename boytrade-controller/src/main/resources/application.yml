@@ -4,7 +4,15 @@ server:
 spring:
   application:
     name: boy-trade-dubbo-consumer
-
+  redis:
+    host: "192.168.2.132"
+    port: 6379
+    database: 1
+    password: "awfewafvdbgsdfigjowfaiowfjweoifjweo2312dfasew23e224214dwfsdafewqrf3q32r"
+    jedis:
+      pool:
+        max-active: 50
+        min-idle: 20
 dubbo:
   service:
     version: 1.0.0

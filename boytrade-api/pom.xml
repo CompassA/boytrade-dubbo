@@ -17,6 +17,10 @@
   <packaging>jar</packaging>
 
   <dependencies>
+    <dependency>
+      <groupId>org.study</groupId>
+      <artifactId>boytrade-data</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

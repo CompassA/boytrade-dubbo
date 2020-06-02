@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.study.mapper.ProductInfoMapper">
+    <resultMap id="ProductInfoMapper" type="org.study.data.ProductInfoData">
+        <id column="product_id" property="productId" jdbcType="INTEGER" />
+        <result column="product_name" property="productName" jdbcType="VARCHAR" />
+        <result column="product_price" property="productPrice" jdbcType="INTEGER" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <select id="selectById" resultMap="ProductInfoMapper">
+        SELECT * FROM product_info WHERE product_id = #{productId}
+    </select>
+
+    <insert id="insert" parameterType="org.study.data.ProductInfoData"
+            useGeneratedKeys="true" keyProperty="data.productId">
+        INSERT INTO product_info(product_name, product_price)
+        VALUES (#{data.productName}, #{data.productPrice})
+    </insert>
+
+    <insert id="insertList" parameterType="list"
+            keyProperty="productId" keyColumn="product_id" useGeneratedKeys="true">
+        INSERT INTO product_info(product_name, product_price)
+        VALUES
+        <foreach collection="dataList" item="productInfo" index="index" separator=",">
+            (#{productInfo.productName}, #{productInfo.productPrice})
+        </foreach>
+    </insert>
+
+</mapper>
