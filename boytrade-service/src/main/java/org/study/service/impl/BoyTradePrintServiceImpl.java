@@ -1,7 +1,7 @@
 package org.study.service.impl;
 
 import org.apache.dubbo.config.annotation.Service;
-import org.study.boytrade.test.BoyTradePrintService;
+import org.study.boytrade.service.test.BoyTradePrintService;
 
 /**
  * @author fanqie

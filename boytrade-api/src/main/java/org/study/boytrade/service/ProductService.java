@@ -1,4 +1,4 @@
-package org.study.boytrade.test.service;
+package org.study.boytrade.service;
 
 import org.study.data.ProductModel;
 

@@ -11,10 +11,16 @@ public final class ApiPath {
     }
 
     public final static class Test {
+
         public static final String ECHO = "/api/test/echo";
 
-        private Test() {
-            throw new RuntimeException("illegal call!");
-        }
+        private Test() { throw new RuntimeException("illegal call!"); }
+    }
+
+    public final static class Product {
+
+        public static final String PRODUCT_INFO = "/api/product/info";
+
+        private Product() { throw new RuntimeException("illegal call!");}
     }
 }

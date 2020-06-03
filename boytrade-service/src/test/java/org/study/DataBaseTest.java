@@ -3,7 +3,6 @@ package org.study;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import org.study.data.ProductInfoData;
 import org.study.mapper.ProductInfoMapper;
@@ -22,7 +21,6 @@ public class DataBaseTest extends BaseTest {
     private ProductInfoMapper productInfoMapper;
 
     @Test
-    @Rollback
     @Transactional(rollbackFor = Exception.class)
     public void productInfoMapperTest() {
         ProductInfoData mock = new ProductInfoData();

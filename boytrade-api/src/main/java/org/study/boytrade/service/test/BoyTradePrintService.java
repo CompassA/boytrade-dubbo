@@ -1,4 +1,4 @@
-package org.study.boytrade.test;
+package org.study.boytrade.service.test;
 
 /**
  * @author fanqie
