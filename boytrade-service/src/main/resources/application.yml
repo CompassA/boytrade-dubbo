@@ -5,7 +5,7 @@ spring:
   application:
     name: boy-trade-dubbo-provider
   datasource:
-    url: "jdbc:mysql://192.168.2.125:3306/trade_dubbo?characterEncoding=utf-8"
+    url: "jdbc:mysql://192.168.3.14:3306/trade_dubbo?characterEncoding=utf-8"
     username: "root"
     password: "Root@2019"
     driver-class-name: "com.mysql.jdbc.Driver"
@@ -27,6 +27,6 @@ dubbo:
     name: dubbo
     port: -1
   registry:
-    address: 192.168.2.132:2181
+    address: 192.168.3.132:2181
     protocol: zookeeper
     check: false

@@ -1,19 +1,14 @@
 package org.study.controller;
 
 import org.apache.dubbo.config.annotation.Reference;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.study.boytrade.service.ProductService;
 import org.study.config.ApiPath;
-import org.study.handler.RedisHandler;
-import org.study.response.ApiResponse;
 import org.study.util.ProductInfoBuilder;
-import org.study.util.RedisKeyCenter;
-
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author fanqie
@@ -22,32 +17,15 @@ import java.util.concurrent.TimeUnit;
 @RestController
 public class ProductController {
 
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
+
     @Reference
     private ProductService productService;
 
-    @Autowired
-    private RedisHandler redisHandler;
-
     @GetMapping(ApiPath.Product.PRODUCT_INFO)
-    public ApiResponse getProductInfo(@RequestParam("id") int id) {
-        String redisKey = RedisKeyCenter.getProductInfoKey(id);
-        Object productInfo = redisHandler.getCache(redisKey);
-        if (productInfo == null) {
-            synchronized (redisKey.intern()) {
-                productInfo = redisHandler.getCache(redisKey);
-                if (productInfo == null) {
-                    productInfo = ProductInfoBuilder.buildVO(productService.getProductById(id));
-                }
-                if (productInfo == null) {
-                    productInfo = RedisHandler.NULL_MARK;
-                }
-                long timeout = 10 + new Random().nextInt(10);
-                redisHandler.save(redisKey, productInfo, timeout, TimeUnit.MINUTES);
-            }
-        }
-        return redisHandler.isNullMark(productInfo)
-                ? ApiResponse.fail("商品不存在")
-                : ApiResponse.success(productInfo);
+    public Object getProductInfo(@RequestParam("id") int id) {
+        logger.info(String.format("cross cache, product id=%d", id));
+        return ProductInfoBuilder.buildVO(productService.getProductById(id));
     }
 
 }

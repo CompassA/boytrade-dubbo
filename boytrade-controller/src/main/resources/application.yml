@@ -5,7 +5,7 @@ spring:
   application:
     name: boy-trade-dubbo-consumer
   redis:
-    host: "192.168.2.132"
+    host: "192.168.3.132"
     port: 6379
     database: 1
     password: "awfewafvdbgsdfigjowfaiowfjweoifjweo2312dfasew23e224214dwfsdafewqrf3q32r"
@@ -21,6 +21,6 @@ dubbo:
   config-center:
     timeout: 10000
   registry:
-    address: 192.168.2.132:2181
+    address: 192.168.3.132:2181
     protocol: zookeeper
     check: false

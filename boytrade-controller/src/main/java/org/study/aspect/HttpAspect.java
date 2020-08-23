@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.study.constants.PointCutCenter;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class HttpAspect {
 
-    @Pointcut("execution(public * org.study.controller.*.*(..))")
+    @Pointcut(PointCutCenter.HTTP_LOG)
     public void httpInfoLog() {}
 
     @Around("httpInfoLog()")
